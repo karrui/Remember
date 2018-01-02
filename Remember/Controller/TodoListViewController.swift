@@ -110,5 +110,16 @@ extension TodoListViewController: UISearchBarDelegate {
         
         loadItems(with: request)
     }
+    
+    // This method will revert to showing all Todos when there is no text in the searchbar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadItems()
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
 }
 
