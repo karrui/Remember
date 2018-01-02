@@ -16,7 +16,7 @@ class CategoryViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadItems()
+        loadCategories()
     }
     
     //MARK: - TableView Datasource Methods
@@ -34,7 +34,7 @@ class CategoryViewController: UITableViewController {
     }
     
     //MARK: - Model Manipulation Methods
-    func saveItems() {
+    func saveCategories() {
         do {
             try context.save()
         } catch {
@@ -43,7 +43,7 @@ class CategoryViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func loadItems(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
+    func loadCategories(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
         do {
             categories = try context.fetch(request)
         } catch {
@@ -66,7 +66,7 @@ class CategoryViewController: UITableViewController {
                 let newCategory = Category(context: self.context)
                 newCategory.name = textField.text!
                 self.categories.append(newCategory)
-                self.saveItems()
+                self.saveCategories()
             }
         }
         
