@@ -35,6 +35,7 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         
         // customize the action appearance
         deleteAction.image = #imageLiteral(resourceName: "cross")
+        deleteAction.backgroundColor = UIColor.black
         
         // customize transition
         deleteAction.transitionDelegate = ScaleTransition.default
